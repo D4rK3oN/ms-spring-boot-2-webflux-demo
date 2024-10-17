@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.github.d4rk3on</groupId>
+        <artifactId>spring-boot-parent</artifactId>
+        <version>2.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>ms-spring-webflux-demo</artifactId>
+    <version>2.0.0-SNAPSHOT</version>
+
+    <name>[Spring Boot][v2][WebFlux] Demo project</name>
+    <description>Demo project for Spring Boot v2</description>
+
+    <dependencies>
+        <!-- Support Modules -->
+        <!--
+        <dependency>
+            <groupId>com.github.d4rk3on</groupId>
+            <artifactId>spring-webflux-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.d4rk3on</groupId>
+            <artifactId>spring-webflux-error</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.d4rk3on</groupId>
+            <artifactId>spring-webflux-logger</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.d4rk3on</groupId>
+            <artifactId>spring-webflux-monitor</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.d4rk3on</groupId>
+            <artifactId>spring-webflux-openapi</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.d4rk3on</groupId>
+            <artifactId>spring-webflux-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.d4rk3on</groupId>
+            <artifactId>spring-webflux-webclient</artifactId>
+        </dependency>
+        -->
+
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <nonFilteredFileExtensions>
+                        <nonFilteredFileExtension>pdf</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>html</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.github.d4rk3on.demo.Application</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build-info</goal>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
+                <executions>
+                    <execution>
+                        <id>jacoco-initialize</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>jacoco-site</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
